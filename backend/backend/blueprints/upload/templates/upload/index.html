@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testando upload comum</title>
+</head>
+<body>
+    {% with mensagens = get_flashed_messages() %}
+    {% if mensagens %}
+    {% for mensagem in mensagens %}
+        <div>
+            <h1>{{mensagem}}</h1>
+        </div>
+        <hr>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <form action="{{url_for('upload.save')}}" method="post" enctype="multipart/form-data">
+        <label for="file">Selecione o arquivo:</label>
+        <input type="file" name="file" id="file">
+
+        <button type="submit">upload</button>
+    </form>
+    <hr>
+    {% for imagem in imagens %}
+    <img src="/upload/img/{{imagem}}" alt="">
+    {% endfor %}
+</body>
+</html>
