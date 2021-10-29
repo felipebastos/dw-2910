@@ -9,9 +9,13 @@
 > Para execução local, o conteúdo de settins será:
 
 `[default]`
+
 `SECRET_KEY = "123456"`
+
 `EXTENSIONS = [ "backend.ext.database:init_app", "backend.ext.cors:init_app", "backend.blueprints.upload.upload:init_app", "backend.blueprints.api_v1.api_v1:init_app",]`
+
 `SQLALCHEMY_DATABASE_URI = "sqlite:{{CAMINHO PARA SEU REPOSITÓRIO LOCAL}}/dw-2910/backend/instance/db.sqlite3"`
+
 `SQLALCHEMY_TRACK_MODIFICATIONS = false`
 
 
