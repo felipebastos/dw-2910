@@ -22,12 +22,15 @@
 2. Crie um virtualenv com ferramenta de sua preferência (poetry, pyenv...) e instale os requirements
 
 3. Garanta que o banco será criado e as entidades criadas, no diretório raiz do backend, execute:
+
 `$ python manage.py db-upgrade`
 
 4. Execute o servidor do backend:
+
 `$ python manage.py runserver`
 
 5. Abra um segundo terminal e vá até o diretório do frontend para executar o serviço
+
 `$ npm run serve`
 
 6. Acesse a URL do frontend conforme aparece no terminal.
