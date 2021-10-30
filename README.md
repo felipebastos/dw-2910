@@ -12,12 +12,13 @@
 
 `SECRET_KEY = "123456"`
 
-`EXTENSIONS = [ "backend.ext.database:init_app", "backend.ext.cors:init_app", "backend.blueprints.upload.upload:init_app", "backend.blueprints.api_v1.api_v1:init_app",]`
+`EXTENSIONS = [ "backend.ext.auth:init_app", "backend.ext.database:init_app", "backend.ext.cors:init_app", "backend.blueprints.upload.upload:init_app", "backend.blueprints.api_v1.api_v1:init_app", "backend.blueprints.api_v2.api_v2:init_app", "backend.blueprints.auth.auth:init_app",]`
 
 `SQLALCHEMY_DATABASE_URI = "sqlite:{{CAMINHO PARA SEU REPOSITÓRIO LOCAL}}/dw-2910/backend/instance/db.sqlite3"`
 
 `SQLALCHEMY_TRACK_MODIFICATIONS = false`
 
+`JWT_SECRET_KEY = "654321"`
 
 2. Crie um virtualenv com ferramenta de sua preferência (poetry, pyenv...) e instale os requirements
 
@@ -29,7 +30,11 @@
 
 `$ python manage.py runserver`
 
-5. Abra um segundo terminal e vá até o diretório do frontend para executar o serviço
+5. Abra um segundo terminal e vá até o diretório do frontend para preparar o app:
+
+`$ npm install`
+
+6. Execute o serviço
 
 `$ npm run serve`
 

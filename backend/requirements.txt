@@ -6,3 +6,4 @@ flask-sqlalchemy
 flask-migrate
 flask-cors
 flask-restful
+flask-jwt-extended

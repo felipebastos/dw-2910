@@ -4,6 +4,8 @@ import Home from '../views/Home.vue'
 import TesteAPI from '../views/TesteAPI.vue'
 import Upload from '../views/Upload.vue'
 import Chat from '../views/Chat.vue'
+import Login from '../views/Login.vue'
+import Cadastro from '../views/Cadastro.vue'
 
 Vue.use(VueRouter)
 
@@ -36,6 +38,16 @@ const routes = [
     name: 'Chat',
     component: Chat
   },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/cadastro',
+    name: 'Cadastro',
+    component: Cadastro
+  }
 ]
 
 const router = new VueRouter({

@@ -5,7 +5,9 @@
       <router-link to="/about">About</router-link> | 
       <router-link to="/mensagem">Mensagem</router-link> | 
       <router-link to="/upload">Upload</router-link> | 
-      <router-link to="/chat">Chat</router-link>
+      <router-link to="/chat">Chat</router-link> | 
+      <router-link to="/login">Login</router-link> | 
+      <router-link to="/cadastro">Cadastro</router-link>
     </div>
     <router-view/>
   </div>
