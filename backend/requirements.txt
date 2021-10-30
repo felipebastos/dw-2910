@@ -5,3 +5,4 @@ flaskstarter==0.4.5
 flask-sqlalchemy
 flask-migrate
 flask-cors
+flask-restful

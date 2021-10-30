@@ -4,4 +4,9 @@ from typing import NoReturn
 from flask import Flask
 
 def init_app(app : Flask) -> NoReturn:
-    cors = CORS(app, resources={r"/api_v1/*": {"origins": "*"}})
+    recursos = {
+        r"/api_v1/*": {"origins": "*"},
+        r"/upload/*": {"origins": "*"},
+        r"/api_v2/*": {"origins": "*"}
+     }
+    cors = CORS(app, resources=recursos)

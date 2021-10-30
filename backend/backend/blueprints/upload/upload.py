@@ -1,6 +1,6 @@
 import os
 
-from flask import Blueprint, render_template, request, flash, redirect, url_for, send_from_directory
+from flask import Blueprint, render_template, request, flash, redirect, url_for, send_from_directory, jsonify
 from werkzeug.utils import secure_filename
 
 from backend.app import create_app
@@ -18,18 +18,20 @@ def allowed_file(filename):
 def root():
     app = create_app()
     imgs = os.listdir(app.config['UPLOAD_FOLDER'])
-    return render_template('upload/index.html', imagens=imgs)
+    #return render_template('upload/index.html', imagens=imgs)
+    response = {'imagens': imgs}
+    return jsonify(response)
 
 
 @bp.post('/save')
 def save():
-    if 'file' not in request.files:
-        flash('Formulário não tem campo de arquivos.')
-        return redirect(url_for('upload.root'))
-    file = request.files['file']
+    if 'arquivo' not in request.files:
+        response = {'status': 'Formulário não tem campo de arquivos.'}
+        return jsonify(response)
+    file = request.files['arquivo']
     if file.filename == '':
-        flash('Não selecionou arquivos.')
-        return redirect(url_for('upload.root'))
+        response = {'status': 'Arquivo sem nome.'}
+        return jsonify(response)
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
         app = create_app()
@@ -38,10 +40,11 @@ def save():
         filename = f'{len(imgs)+1:08}.{filename.rsplit(".", 1)[1].lower()}'
 
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        flash('Upload com sucesso!')
-        
-        return redirect(url_for('upload.root'))
-    return redirect(url_for('upload.root'))
+        response = {'status': 'Upload com sucesso!'}
+        return jsonify(response)
+    else:
+        response = {'status': 'Formato de arquivo não permitido.'}
+        return jsonify(response)
 
 @bp.get('/img/<nome>')
 def imagem(nome):

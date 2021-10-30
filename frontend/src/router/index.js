@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import TesteAPI from '../views/TesteAPI.vue'
+import Upload from '../views/Upload.vue'
+import Chat from '../views/Chat.vue'
 
 Vue.use(VueRouter)
 
@@ -23,6 +25,16 @@ const routes = [
     path: '/mensagem',
     name: 'Mensagem',
     component: TesteAPI
+  },
+  {
+    path: '/upload',
+    name: 'Upload',
+    component: Upload
+  },
+  {
+    path: '/chat',
+    name: 'Chat',
+    component: Chat
   },
 ]
 
