@@ -7,9 +7,15 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
     name: 'Login',
     methods: {
+        ...mapActions([
+            'chat/update_token',
+            'chat/update_name'
+        ]),
         async logar() {
             const nome = document.querySelector('#nome').value;
             const senha = document.querySelector('#senha').value;
@@ -22,8 +28,10 @@ export default {
             .then(response => {return response.data})
             .catch(error => (console.log(error)))
             
-            this.$store.commit('update_token',res.access_token);
-            this.$store.commit('update_name', nome);
+            this['chat/update_token'](res.access_token);
+            this['chat/update_name'](nome);
+
+            
         },
     }
 }

@@ -1,23 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import chat from '@/store/modules/chat'
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {
-    user_name: '',
-    access_token: '',
-  },
-  mutations: {
-    update_token (state, nt) {
-      state.access_token = nt
-    },
-    update_name (state, nn) {
-      state.user_name = nn
-    }
-  },
-  actions: {
-  },
   modules: {
+    chat: chat
   }
 })

@@ -4,14 +4,13 @@ from flask_restful import Api, Resource
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
 from backend.ext.database import db
-from backend.ext.auth import jwt
 
 from backend.blueprints.api_v2.models import Mensagem
 
 bp = Blueprint('api_v2', __name__, url_prefix='/api_v2')
 api = Api(bp)
 
-class ConverasList(Resource):
+class ConversasList(Resource):
     @jwt_required()
     def get(self):
         msgs = []
@@ -33,8 +32,8 @@ class Conversas(Resource):
 
         return jsonify({'status': 'success'})
 
-api.add_resource(ConverasList, '/')
-api.add_resource(Conversas, '/put')
+api.add_resource(ConversasList, '/')
+api.add_resource(Conversas, '/post')
 
 def init_app(app):
     app.register_blueprint(bp)
