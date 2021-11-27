@@ -10,7 +10,7 @@
         style="width: 10%; height: auto"
         v-for="(imagem, key) in imagens"
         :key="key"
-        :src="`http://localhost:5000/upload/img/${imagem}`"
+        :src="`http://localhost:8000/upload/img/${imagem}`"
         alt=""
       />
     </div>
@@ -34,14 +34,14 @@ export default {
       payload.append("arquivo", arquivo);
 
       await this.$axios
-        .post("http://localhost:5000/upload/save", payload)
+        .post("http://localhost:8000/upload/save", payload)
         .then((response) => console.log(response.data.status))
         .catch((error) => console.log(error));
       this.atualiza();
     },
     async atualiza() {
       await this.$axios
-        .get("http://localhost:5000/upload/")
+        .get("http://localhost:8000/upload/")
         .then((response) => (this.imagens = response.data.imagens));
     },
   },

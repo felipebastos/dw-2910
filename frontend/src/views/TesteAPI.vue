@@ -20,7 +20,7 @@ export default {
     };
   },
   async mounted () {
-    await axios.get("http://localhost:5000/api_v1/")
+    await axios.get("http://localhost:8000/api_v1/")
       .then(response => (this.mensagem = response.data.mensagem))
       .catch(function(error){
           console.log(error);

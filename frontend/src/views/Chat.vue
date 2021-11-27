@@ -43,7 +43,7 @@ export default {
       };
 
       await this.$axios
-        .post("http://localhost:5000/api_v2/post", payload, config)
+        .post("http://localhost:8000/api_v2/post", payload, config)
         .then((response) => console.log(response.data.status))
         .catch((error) => console.log(error));
 
@@ -54,7 +54,7 @@ export default {
         headers: { Authorization: `Bearer ${this.token}` },
       };
       await this.$axios
-        .get("http://localhost:5000/api_v2/", config)
+        .get("http://localhost:8000/api_v2/", config)
         .then((response) => (this.mensagens = response.data.mensagens))
         .catch((error) => console.log(error));
     },

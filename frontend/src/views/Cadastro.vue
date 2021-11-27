@@ -18,7 +18,7 @@ export default {
             payload.append('nome', nome);
             payload.append('senha', senha);
 
-            await this.$axios.post("http://localhost:5000/auth/register", payload)
+            await this.$axios.post("http://localhost:8000/auth/register", payload)
             .then(response => (console.log(response.data.status)))
             .catch(error => (console.log(error)))
         },

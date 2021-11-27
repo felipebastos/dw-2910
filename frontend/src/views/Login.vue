@@ -24,7 +24,7 @@ export default {
             payload.append('nome', nome);
             payload.append('senha', senha);
 
-            const res = await this.$axios.post("http://localhost:5000/auth/login", payload)
+            const res = await this.$axios.post("http://localhost:8000/auth/login", payload)
             .then(response => {return response.data})
             .catch(error => (console.log(error)))
             
